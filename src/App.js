@@ -40,7 +40,7 @@ class BooksApp extends Component {
                 <Route exact path='/' render={() => (
                   <div className="list-books">
                     <div className="list-books-title">
-                      <h1>MyReads</h1><img src="https://png.icons8.com/color/100/ffffff/book-shelf.png"/>
+                      <h1>MyReads</h1><img src="https://png.icons8.com/color/100/ffffff/book-shelf.png" alt="Bookshelf"/>
                     </div>
                     <BookList
                     books={books}
