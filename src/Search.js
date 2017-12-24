@@ -5,14 +5,13 @@ import * as BooksAPI from './BooksAPI'
 import Book from './Book'
 
 class Search extends Component{
-  state = {
-    query: '',
-    searchedBooks: []
-  }
-
   static propTypes = {
     books: PropTypes.array.isRequired,
     updateShelf: PropTypes.func.isRequired
+  }
+  state = {
+    query: '',
+    searchedBooks: []
   }
 
   searchBooks = (event) => {
@@ -20,14 +19,14 @@ class Search extends Component{
     this.setState({ query: query })
 
     if (query) {
-      BooksAPI.search(query).then((books) => {
-        books.length > 0 ? this.setState({searchedBooks: books}) : this.setState({searchedBooks: [] })
+      BooksAPI.search(query, 20).then((books) => {
+        books.length > 0 ? this.setState({searchedBooks: books}) : this.setState({searchedBooks: []})
       })
     }else this.setState({searchedBooks: []})
   }
 
   render(){
-    const { query, searchedBooks } = this.state
+    const { query, searchedBooks, searchErr } = this.state
     const { books, updateShelf } = this.props
     return(
       <div className="search-books">
@@ -44,16 +43,19 @@ class Search extends Component{
           </div>
         </div>
         <div className="search-books-results">
-          <ol className="books-grid">
-            {searchedBooks.map((book) => (
-              <Book
-                book={book}
-                books={books}
-                key={book.id}
-                updateShelf={updateShelf}
-              />
-            ))}
-          </ol>
+          { searchedBooks.length > 0  && (
+            <ol className="books-grid">
+              {searchedBooks.map((book) => (
+                <Book
+                  book={book}
+                  books={books}
+                  key={book.id}
+                  updateShelf={updateShelf}
+                />
+              ))}
+            </ol>
+          ) }
+
         </div>
       </div>
     )
