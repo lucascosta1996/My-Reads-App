@@ -40,7 +40,13 @@ class BooksApp extends Component {
                 <Route exact path='/' render={() => (
                   <div className="list-books">
                     <div className="list-books-title">
+<<<<<<< HEAD
                       <h1>MyReads</h1><img src="https://png.icons8.com/color/100/ffffff/book-shelf.png" alt="Bookshelf icons8"/>
+||||||| merged common ancestors
+                      <h1>MyReads</h1><img src="https://png.icons8.com/color/100/ffffff/book-shelf.png"/>
+=======
+                      <h1>MyReads</h1><img src="https://png.icons8.com/color/100/ffffff/book-shelf.png" alt="Bookshelf"/>
+>>>>>>> c0782506d3c029c641b17417fe70d20417969d18
                     </div>
                     <BookList
                     books={books}

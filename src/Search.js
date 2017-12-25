@@ -26,7 +26,7 @@ class Search extends Component{
   }
 
   render(){
-    const { query, searchedBooks } = this.state
+    const { query, searchedBooks, searchErr } = this.state
     const { books, updateShelf } = this.props
     return(
       <div className="search-books">
