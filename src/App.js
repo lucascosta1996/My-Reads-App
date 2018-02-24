@@ -16,7 +16,7 @@ class BooksApp extends Component {
       this.setState({books})
     })
   }
-//check if book works in place of recentbook
+
   updateShelf = (recentBook, nowShelf) => {
     BooksAPI.update(recentBook, nowShelf).then(response => {
       recentBook.shelf = nowShelf
